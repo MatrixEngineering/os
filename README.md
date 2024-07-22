@@ -1,4 +1,4 @@
-# rust_os following by : https://os.phil-opp.com/
+# rust_os following source : https://os.phil-opp.com/
 # run 
 ```bash
 rustup override set nightly
