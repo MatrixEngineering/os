@@ -1,4 +1,4 @@
-- this fun project simple os following source : https://os.phil-opp.com/
+Fun project simple os following source : https://os.phil-opp.com/
 - make sure have install rust
 - install QEMU 
      - Ubuntu: 
