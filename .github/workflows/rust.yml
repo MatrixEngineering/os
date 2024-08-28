@@ -11,6 +11,9 @@ on:
     types: [ opened, synchronize, reopened ]
     branches:
       - main
+env:
+  CARGO_TERM_COLOR: always
+    
 jobs:
   fmt:
     name: Rustfmt
@@ -22,3 +25,25 @@ jobs:
           components: rustfmt
       - name: Enforce formatting
         run: cargo fmt --check
+
+  build:
+        runs-on: ubuntu-latest
+        steps:
+        # install QEMU
+            - name: Install QEMU
+              run: sudo apt update && sudo apt install -y qemu-system-x86
+            - name: "Print QEMU Version"
+              run: qemu-system-x86_64 --version
+            - uses: actions/checkout@v4
+            - name: Get Nightly Build
+              run: rustup override set nightly
+            - name: Add rust-src
+              run: rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
+            - name: Add llvm-tools 
+              run: rustup component add llvm-tools-preview
+            - name: Install Bootimage
+              run: cargo install bootimage
+            - name: Build
+              run: cargo build --target x86_64-blog_os.json --verbose
+            - name: Run tests
+              run: cargo test --target x86_64-blog_os.json --verbose
