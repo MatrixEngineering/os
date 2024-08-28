@@ -47,3 +47,22 @@ jobs:
               run: cargo build --target x86_64-blog_os.json --verbose
             - name: Run tests
               run: cargo test --target x86_64-blog_os.json --verbose
+  clippy:
+        runs-on: ubuntu-latest
+        steps:
+        # install QEMU
+            - name: Install QEMU
+              run: sudo apt update && sudo apt install -y qemu-system-x86
+            - name: "Print QEMU Version"
+              run: qemu-system-x86_64 --version
+            - uses: actions/checkout@v4
+            - name: Get Nightly Build
+              run: rustup override set nightly
+            - name: Add rust-src
+              run: rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
+            - name: Add llvm-tools 
+              run: rustup component add llvm-tools-preview
+            - name: Install Bootimage
+              run: cargo install bootimage
+            - name: Run Clippy
+              run: cargo clippy --target x86_64-blog_os.json --verbose
