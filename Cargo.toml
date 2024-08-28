@@ -30,3 +30,7 @@ test-args = [
 	"none",
 ]
 test-success-exit-code = 33
+
+[[test]]
+name = "should_panic"
+harness = false
