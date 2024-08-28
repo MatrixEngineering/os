@@ -27,8 +27,8 @@ macro_rules! serial_print {
 }
 
 #[macro_export]
-macro_rules! searial_println {
+macro_rules! serial_println {
     () => ($crate::serial_println!("\n"));
-    ($fmt:expr)=>($crate::serial_println!(concat!($fmt, "\n")));
+    ($fmt:expr)=>($crate::serial_print!(concat!($fmt, "\n")));
     ($fmt:expr, $($arg:tt)*)=>($crate::serial_print!(concat!($fmt, "\n"), $($arg)*));
 }
