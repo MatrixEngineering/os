@@ -1,4 +1,5 @@
 - this fun project simple os following source : https://os.phil-opp.com/
+- make sure have install rust
 - run 
 ```bash
 rustup override set nightly
