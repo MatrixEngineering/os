@@ -9,6 +9,7 @@ mod serial;
 
 mod vga_buffer;
 
+#[allow(clippy::all)]
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
     println!("Hello world{}", "!");
@@ -19,6 +20,7 @@ pub extern "C" fn _start() -> ! {
     loop {}
 }
 
+#[allow(clippy::all)]
 #[cfg(not(test))]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {

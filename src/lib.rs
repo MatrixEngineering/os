@@ -47,6 +47,7 @@ pub fn test_runner(tests: &[&dyn Testable]) {
     exit_qemu(QemuExitCode::Success);
 }
 
+#[allow(clippy::all)]
 pub fn test_panic_handler(info: &PanicInfo) -> ! {
     serial_print!("❌\n");
     serial_print!("[💩]{}\n", info);
@@ -54,6 +55,7 @@ pub fn test_panic_handler(info: &PanicInfo) -> ! {
     loop {}
 }
 
+#[allow(clippy::all)]
 #[cfg(test)]
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
