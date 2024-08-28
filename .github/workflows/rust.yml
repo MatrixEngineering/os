@@ -1,4 +1,4 @@
-name: Rust
+name: CLI
 
 on:
   # NB: this differs from the book's project!
