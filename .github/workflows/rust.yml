@@ -44,9 +44,9 @@ jobs:
             - name: Install Bootimage
               run: cargo install bootimage
             - name: Build
-              run: cargo build --target x86_64-blog_os.json --verbose
+              run: cargo build --target x86_64-os.json --verbose
             - name: Run tests
-              run: cargo test --target x86_64-blog_os.json --verbose
+              run: cargo test --target x86_64-os.json --verbose
   clippy:
         runs-on: ubuntu-latest
         steps:
@@ -67,4 +67,4 @@ jobs:
             - name: Install nightly clippy
               run: rustup component add --toolchain nightly-x86_64-unknown-linux-gnu clippy
             - name: Run Clippy
-              run: cargo clippy --target x86_64-blog_os.json --verbose
+              run: cargo clippy --target x86_64-os.json --verbose
