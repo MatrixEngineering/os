@@ -1,4 +1,4 @@
-# simple os following source : https://os.phil-opp.com/
+# this fun project simple os following source : https://os.phil-opp.com/
 # run 
 ```bash
 rustup override set nightly
