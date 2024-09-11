@@ -1,4 +1,4 @@
-name: CLI
+name: CI
 
 on:
   # NB: this differs from the book's project!
@@ -16,7 +16,7 @@ env:
     
 jobs:
   fmt:
-    name: Rustfmt
+    name: Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
